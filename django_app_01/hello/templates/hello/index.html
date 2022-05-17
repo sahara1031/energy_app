@@ -1,0 +1,24 @@
+{% load static %}
+<!doctypw html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>{{title}}</title>
+    <link rel="stylesheet" type="text/css"
+        href="{% static 'hello/css/bootstrap.css' %}" />
+</head>
+<body>
+    <h1>{{title}}<h1>
+    <p>{{result|safe}}</p>
+    <table>
+    <form action="{% url 'index' %}" method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+    {% for list in lists %}
+         <input type="checkbox" name="food" value="{{food}}" /> {{list}}<br />
+    {% endfor %}
+    <p>{{result}}</p>
+    </form>
+    </table>
+</body>
+</html>A
